@@ -1,3 +1,5 @@
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
@@ -44,6 +46,12 @@ def movie_stats(request):
     })
 
 
-
+@login_required
+def movies_view(request):
+    movies = Movie.objects.all()
+    context = {
+        'movies': movies
+    }
+    return render(request, 'movies/movie_list.html', context)
 
 

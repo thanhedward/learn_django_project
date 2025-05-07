@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'authentication',
     'movies.apps.MoviesConfig',  # Thay đổi này để sử dụng config class
     'projects',
+    'accounts'
 ]
 
 SITE_ID = 1
